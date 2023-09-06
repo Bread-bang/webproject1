@@ -1,13 +1,16 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 public class WordCRUD implements ICRUD{
-    ArrayList<Word> list;
+    LinkedHashSet<Word> words;
+
     Scanner sc;
     WordCRUD(Scanner sc){
-        list = new ArrayList<>();
+        words = new LinkedHashSet<>();
         this.sc = sc;
     }
 
@@ -22,9 +25,11 @@ public class WordCRUD implements ICRUD{
     }
 
     public void addWord(){
-        Word one = (Word)add();
-        list.add(one);
-        System.out.println("새 단어가 단어장에 추가 되었습니다.");
+        Word word = (Word)add();
+        if(words.add(word))
+            System.out.println("[Notice] 새 단어가 단어장에 추가 되었습니다.");
+        else
+            System.out.println("[Notice] 이미 단어장에 있습니다.");
     }
 
     @Override
@@ -44,9 +49,10 @@ public class WordCRUD implements ICRUD{
 
     public void listAll(){
         System.out.println("--------------------------------");
-        for(int i = 0; i < list.size(); i++){
-            System.out.print((i + 1) + "  ");
-            System.out.println(list.get(i).toString());
+        int i = 1;
+        for (Word word : words) {
+            System.out.println(i + "  " + word.toString());
+            i++;
         }
         System.out.println("--------------------------------");
     }
