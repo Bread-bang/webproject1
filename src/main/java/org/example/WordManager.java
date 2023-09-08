@@ -23,6 +23,9 @@ public class WordManager {
                 // create
                 wordCRUD.addWord();
             }
+            else if(menu == 5) {
+                wordCRUD.update();
+            }
         }
     }
 
@@ -41,5 +44,4 @@ public class WordManager {
                 + "=> 원하는 메뉴는? ");
         return sc.nextInt();
     }
-
 }
