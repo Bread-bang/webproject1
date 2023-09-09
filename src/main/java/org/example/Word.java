@@ -8,8 +8,7 @@ public class Word {
 
     public Word(){}
 
-    public Word(int id, int level, String word, String meaning) {
-        this.id = id;
+    public Word(int level, String word, String meaning) {
         this.level = level;
         this.word = word;
         this.meaning = meaning;

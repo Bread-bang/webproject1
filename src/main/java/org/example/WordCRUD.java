@@ -22,7 +22,7 @@ public class WordCRUD implements ICRUD{
         word = word.trim();
         System.out.print("뜻 입력 : ");
         String meaning = sc.nextLine();
-        return new Word(0, level, word, meaning);
+        return new Word(level, word, meaning);
     }
 
     public void addWord(){
