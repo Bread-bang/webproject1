@@ -1,7 +1,6 @@
 package org.example;
 
 public class Word {
-    private int id;
     private int level;
     private String word;
     private String meaning;
@@ -12,14 +11,6 @@ public class Word {
         this.level = level;
         this.word = word;
         this.meaning = meaning;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getLevel() {
