@@ -1,9 +1,6 @@
 package org.example;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -122,6 +119,19 @@ public class WordCRUD implements ICRUD{
             System.out.println("==> " + count + "개 로딩 완료 !!!");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveFile(){
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
+            for(Word word : words){
+                bw.write(word.toFileString() + "\n");
+            }
+            bw.close();
+            System.out.println("==> 데이터 저장 완료 !!!");
         } catch (IOException e) {
             e.printStackTrace();
         }

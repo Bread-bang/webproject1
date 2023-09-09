@@ -47,6 +47,10 @@ public class Word {
         return str;
     }
 
+    public String toFileString(){
+        return this.level + "|" + this.word + "|" + this.meaning;
+    }
+
     @Override
     public int hashCode() {
         int result = 17;
