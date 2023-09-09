@@ -23,6 +23,9 @@ public class WordManager {
             else if(menu == 2) {
                 wordCRUD.listWordByLevel();
             }
+            else if(menu == 3) {
+                wordCRUD.searchWord();
+            }
             else if(menu == 4) {
                 // create
                 wordCRUD.addWord();

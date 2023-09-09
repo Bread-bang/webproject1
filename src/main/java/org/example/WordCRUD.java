@@ -114,6 +114,24 @@ public class WordCRUD implements ICRUD{
         System.out.println("--------------------------------");
     }
 
+    public void searchWord(){
+        Word target = null;
+
+        System.out.print("검색어를 입력하세요 : ");
+        String targetWord = sc.next();
+        System.out.println("--------------------------------");
+        int i = 1;
+        for(Word word : words){
+            if(word.getWord().contains(targetWord)){
+                target = word;
+                System.out.println(i + "  " + word.toString());
+                i++;
+            }
+        }
+        System.out.println("--------------------------------");
+
+    }
+
     public void loadFile(){
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
