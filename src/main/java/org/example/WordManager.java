@@ -9,6 +9,7 @@ public class WordManager {
         wordCRUD = new WordCRUD(sc);
     }
     public void start(){
+        wordCRUD.loadFile();
         while(true){
             int menu = selectMenu();
             if(menu == 0){

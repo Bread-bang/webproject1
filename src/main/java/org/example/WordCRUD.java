@@ -1,5 +1,9 @@
 package org.example;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -7,8 +11,9 @@ import java.util.Scanner;
 
 public class WordCRUD implements ICRUD{
     LinkedHashSet<Word> words;
-
+    final String filename = "Dictionary.txt";
     Scanner sc;
+
     WordCRUD(Scanner sc){
         words = new LinkedHashSet<>();
         this.sc = sc;
@@ -93,5 +98,32 @@ public class WordCRUD implements ICRUD{
             i++;
         }
         System.out.println("--------------------------------");
+    }
+
+    public void loadFile(){
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            String line;
+            int count = 0;
+
+            while(true){
+                line = br.readLine();
+                if(line == null)
+                    break;
+                // "|"을 문자열로 인식하기 위해서 앞에 백슬래시 두 개를 넣어준다.
+                String data[] = line.split("\\|");
+                int level = Integer.parseInt(data[0]);
+                String word = data[1];
+                String meaning = data[2];
+                words.add(new Word(level, word, meaning));
+                count++;
+            }
+            br.close();
+            System.out.println("==> " + count + "개 로딩 완료 !!!");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
