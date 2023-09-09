@@ -55,9 +55,22 @@ public class WordCRUD implements ICRUD{
     }
 
     @Override
-    public int delete(Object obj) {
+    public void delete() {
+        Word target = null;
 
-        return 0;
+        // 단어 입력 받기
+        System.out.print("삭제할 단어를 입력하세요 : ");
+        String wordToDelete = sc.next();
+
+        // 수정할 단어 가져오기
+        try{
+            target = (Word)selectOne(wordToDelete);
+        }catch(ClassCastException e) {
+            System.out.println("해당 단어는 없습니다. 다시 시도해주세요!");
+        }
+
+        // 삭제
+        words.remove(target);
     }
 
     @Override
