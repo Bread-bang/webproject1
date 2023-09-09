@@ -20,6 +20,9 @@ public class WordManager {
                 // list
                 wordCRUD.listAll();
             }
+            else if(menu == 2) {
+                wordCRUD.listWordByLevel();
+            }
             else if(menu == 4) {
                 // create
                 wordCRUD.addWord();

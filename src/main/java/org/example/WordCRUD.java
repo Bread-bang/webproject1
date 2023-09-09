@@ -97,6 +97,23 @@ public class WordCRUD implements ICRUD{
         System.out.println("--------------------------------");
     }
 
+    public void listWordByLevel(){
+        Word target = null;
+
+        System.out.print("레벨을 숫자로 입력하세요 : ");
+        int levelYouWant = sc.nextInt();
+        System.out.println("--------------------------------");
+        int i = 1;
+        for(Word word : words){
+            if(word.getLevel() == levelYouWant){
+                target = word;
+                System.out.println(i + "  " + word.toString());
+                i++;
+            }
+        }
+        System.out.println("--------------------------------");
+    }
+
     public void loadFile(){
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
