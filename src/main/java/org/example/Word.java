@@ -55,7 +55,6 @@ public class Word {
     public int hashCode() {
         int result = 17;
         result = 31 * result + (word == null ? 0 : word.hashCode());
-        result = 31 * result + (meaning == null ? 0 : meaning.hashCode());
 
         return result;
     }
@@ -64,7 +63,7 @@ public class Word {
     public boolean equals(Object obj) {
         if (obj instanceof Word) {
             Word temp = (Word) obj;
-            return word.equals(temp.word) && meaning.equals(temp.meaning);
+            return word.equals(temp.word);
         }
         return false;
     }

@@ -46,14 +46,15 @@ public class WordCRUD implements ICRUD{
         // 수정할 단어 가져오기
         try{
             target = (Word)selectOne(wordToModify);
+            sc.nextLine();
+            // 뜻 수정하기
+            System.out.print("수정할 뜻을 알려주세요 : ");
+            String modifiedMeaning = sc.nextLine();
+            target.setMeaning(modifiedMeaning);
         }catch(ClassCastException e) {
             System.out.println("해당 단어는 없습니다. 다시 시도해주세요!");
+            update();
         }
-
-        // 뜻 수정하기
-        System.out.print("수정할 뜻을 알려주세요 : ");
-        String modifiedMeaning = sc.next();
-        target.setMeaning(modifiedMeaning);
     }
 
     @Override
